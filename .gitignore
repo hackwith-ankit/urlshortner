@@ -1,0 +1,31 @@
+# Build and dependency directories
+node_modules/
+dist/
+target/
+.gradle/
+/build/
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Crash reports
+drw.sft
+dump.rdb
