@@ -1,15 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "BACKEND_URL_PLACEHOLDER/api/:path*"
-    },
-    {
-      "source": "/s/:path*",
-      "destination": "BACKEND_URL_PLACEHOLDER/s/:path*"
-    },
-    {
-      "source": "/((?!api|s|assets|favicon.ico).*)",
+      "source": "/((?!assets|favicon.ico).*)",
       "destination": "/index.html"
     }
   ]
