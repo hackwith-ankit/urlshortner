@@ -19,8 +19,9 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        String cleanFrontendUrl = frontendUrl != null ? frontendUrl.replaceAll("/+$", "") : "";
         registry.addMapping("/**")
-                .allowedOrigins(frontendUrl, "http://localhost:5173", "http://localhost:3000")
+                .allowedOrigins(cleanFrontendUrl, "http://localhost:5173", "http://localhost:3000")
                 .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)
@@ -29,8 +30,9 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+        String cleanFrontendUrl = frontendUrl != null ? frontendUrl.replaceAll("/+$", "") : "";
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of(frontendUrl, "http://localhost:5173", "http://localhost:3000"));
+        configuration.setAllowedOrigins(List.of(cleanFrontendUrl, "http://localhost:5173", "http://localhost:3000"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
